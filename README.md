@@ -28,6 +28,33 @@ An implementation of `IPublishSubscribeService` that manages subscribers and eve
 
 ## Usage
 
-1. Create instances of `Machine` and initialize their stock.
-2. Create an instance of `PublishSubscribeService`.
-3. Create instances of subscribers (`MachineRefillSubscriber` and `StockWarningSubscriber
+1. Create Instances of Machines:
+
+   Start by creating instances of vending machines using the `Machine` class. Initialize their stock levels.
+
+2. Initialize the Publish-Subscribe Service:
+
+   Create an instance of the `PublishSubscribeService` class, which will manage subscribers and event publication.
+
+3. Create Subscribers:
+
+   Create instances of subscribers (`MachineRefillSubscriber` and `StockWarningSubscriber`) and subscribe them to specific event types using the `Subscribe` method of the `IPublishSubscribeService` interface.
+
+4. Publish Events:
+
+   Create instances of events (e.g., `MachineSaleEvent` or `MachineRefillEvent`) and use the `Publish` method of the `IPublishSubscribeService` interface to publish them. Subscribers will be notified and handle the events according to their logic.
+
+5. Handle Events:
+
+   Subscribers (`MachineRefillSubscriber` and `StockWarningSubscriber`) will handle events based on their logic. For example, `MachineRefillSubscriber` will increase the stock when a `MachineRefillEvent` occurs, and `StockWarningSubscriber` will generate `LowStockWarningEvent` or `StockLevelOkEvent` based on stock levels.
+
+6. Unsubscribe (Optional):
+
+   If you want to unsubscribe a subscriber from receiving specific events, you can use the `Unsubscribe` method of the `IPublishSubscribeService` interface.
+
+7. Additional Event Handling:
+
+   Remember that subscribers can create new events if desired. These events will be handled after all existing events are handled by other subscribers.
+
+Customize the logic within subscribers and events to suit your specific requirements.
+
