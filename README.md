@@ -55,6 +55,3 @@ An implementation of `IPublishSubscribeService` that manages subscribers and eve
 7. Additional Event Handling:
 
    Remember that subscribers can create new events if desired. These events will be handled after all existing events are handled by other subscribers.
-
-Customize the logic within subscribers and events to suit your specific requirements.
-
